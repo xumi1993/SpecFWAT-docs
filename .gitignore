@@ -5,3 +5,9 @@
 resources/
 public/
 jsconfig.json
+
+.vscode/
+# Hugo
+.hugo_build.lock
+go.sum
+hugo_stats.json

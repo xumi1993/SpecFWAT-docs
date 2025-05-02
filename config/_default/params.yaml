@@ -40,7 +40,7 @@ header:
       # Logo filename in `assets/media/` folder
       filename: "logo.svg"
     button:
-      enable: true
+      enable: false
       text: "Get Started"
       url: "https://hugoblox.com/templates/details/docs/"
     show_search: true
@@ -49,7 +49,7 @@ header:
 # Site footer
 footer:
   copyright:
-    notice: '© {year} My Company. This work is licensed under {license}'
+    notice: '© {year} University of Toronto. This work is licensed under {license}'
     license:
       enable: true
       allow_derivatives: false
@@ -58,7 +58,7 @@ footer:
 
 # Localization
 locale:
-  date_format: 'Jan 2, 2006'
+  date_format: 'May 2, 2025'
   time_format: '3:04 PM'
 
 # Site features
@@ -68,13 +68,13 @@ features:
   privacy_pack:
     enable: false
   repository:
-    url: 'https://github.com/HugoBlox/hugo-blox-builder/'
+    url: 'https://github.com/CompSeismoUT/SpecFWAT'
     content_dir: 'starters/documentation/content'
     branch: 'main'
   feedback:
     responses:
-      positive: 'Glad to hear it! [Any ideas for improvements?](https://github.com/<USERNAME>/<REPO>/issues/new).'
-      negative: 'Sorry to hear that. [Please tell us how we can improve](https://github.com/<USERNAME>/<REPO>/issues/new).'
+      positive: 'Glad to hear it! [Any ideas for improvements?](https://github.com/CompSeismoUT/SpecFWAT/issues/new).'
+      negative: 'Sorry to hear that. [Please tell us how we can improve](https://github.com/CompSeismoUT/SpecFWAT/issues/new).'
   comment:
     provider: ''
     giscus:

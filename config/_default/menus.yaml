@@ -8,9 +8,9 @@ main:
   - name: Documentation
     url: docs/
     weight: 20
-  - name: Blog
-    url: blog/
-    weight: 30
+  # - name: Blog
+  #   url: blog/
+  #   weight: 30
   - name: Showcase
     url: showcase/
     weight: 40
@@ -19,16 +19,17 @@ main:
     weight: 50
 
 sidebar:
-  - identifier: more
-    name: Still need help?
+  - identifier: DEVELOPMENT
+    name: DEVELOPMENT
     params:
       type: separator
     weight: 1
-  - identifier: community
-    name: "Community"
-    pageRef: "/community"
+  - identifier: Github
+    name: "Github ↗"
+    # pageRef: "/community"
+    url: "https://github.com/CompSeismoUT/SpecFWAT"
     weight: 2
-  - identifier: hugoDocs
-    name: "Hugo Docs ↗"
-    url: "https://docs.hugoblox.com"
+  - identifier: Contributors
+    name: "Contributors ↗"
+    url: "https://www.physics.utoronto.ca/~liuqy/"
     weight: 3
