@@ -34,9 +34,9 @@ sections:
         color: ""
         image:
           # Add your image background to `assets/media/`.
-          filename: ""
+          filename: "oooscillate.svg"
           filters:
-            brightness: 0.5
+            brightness: 1
   # - block: stats
   #   content:
   #     items:
