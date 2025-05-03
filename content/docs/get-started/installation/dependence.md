@@ -4,6 +4,8 @@ title: Install Dependencies
 weight: 2
 ---
 
+<!--more-->
+
 SpecFWAT requires several dependencies to compile and run.
 
 **Required dependencies:**
@@ -45,7 +47,7 @@ conda install -c conda-forge fortran-compiler c-compiler cmake openmpi hdf5
 
 {{% /steps %}}
 
-## For supercomputers
+## For High Performance Computing (HPC) systems
 
 To install the dependencies for SpecFWAT on supercomputers, we recommend to load the required modules using the module system.
 
@@ -59,5 +61,5 @@ module load openmpi/4.1.5_gcc11.2_ucx1.14.1_cuda11.8 cmake/3.30.0 cuda/11.8 hdf5
 
 ```bash
 module --force purge
-module load NiaEnv/2022a intel intelmpi hdf5 netcdf cmake
+module load NiaEnv/2022a intel openmpi hdf5 netcdf cmake
 ```
