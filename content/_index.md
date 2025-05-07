@@ -34,7 +34,7 @@ sections:
         color: ""
         image:
           # Add your image background to `assets/media/`.
-          filename: "oooscillate.svg"
+          filename: "liquid-cheese.svg"
           filters:
             brightness: 1
   # - block: stats
