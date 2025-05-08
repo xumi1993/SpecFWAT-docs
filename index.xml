@@ -28,9 +28,9 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
 &lt;h2 id="for-high-performance-computing-hpc-systems">For High Performance Computing (HPC) systems&lt;/h2>
 &lt;p>To install the dependencies for SpecFWAT on supercomputers, we recommend to load the required modules using the module system.&lt;/p>
-&lt;h3 id="n40bscc">N40@BSCC&lt;/h3>
+&lt;h3 id="n40bscc-nvidia-rtx-4090">N40@BSCC (Nvidia RTX 4090)&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">module load openmpi/4.1.5_gcc11.2_ucx1.14.1_cuda11.8 cmake/3.30.0 cuda/11.8 hdf5/1.13.3
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="niagaraccdb">Niagara@CCDB&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="niagaraccdb-cpu-only">Niagara@CCDB (CPU only)&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">module --force purge
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">module load NiaEnv/2022a intel openmpi hdf5 netcdf cmake
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Configuration</title><link>https://specfwat.xumijian.me/docs/get-started/installation/build/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://specfwat.xumijian.me/docs/get-started/installation/build/</guid><description>&lt;p>SpecFWAT is built using CMake, a cross-platform build system. The following instructions will guide you through the process of building SpecFWAT on your system.&lt;/p>
@@ -42,14 +42,14 @@
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cmake ..
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
 &lt;h3 id="more-options">More options&lt;/h3>
-&lt;p>More options can be specified in the &lt;code>cmake&lt;/code> command. For example, you can specify the HDF5 directory and enable GPU support. Here are some common options:&lt;/p>
-&lt;ol>
-&lt;li>Specify the HDF5 directory:&lt;/li>
-&lt;/ol>
+&lt;h4 id="1-specify-compilers">1. Specify Compilers:&lt;/h4>
+&lt;p>If you have multiple compilers installed, you can specify the Fortran and C compilers using the &lt;code>FC&lt;/code> and &lt;code>CC&lt;/code> options, respectively. For example on &lt;strong>Niagara@CCDB&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">CC&lt;/span>&lt;span class="o">=&lt;/span>icc &lt;span class="nv">CXX&lt;/span>&lt;span class="o">=&lt;/span>icpc &lt;span class="nv">FC&lt;/span>&lt;span class="o">=&lt;/span>mpifort &lt;span class="nv">MPIFC&lt;/span>&lt;span class="o">=&lt;/span>mpifort cmake ..
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>More options can be specified in the &lt;code>cmake&lt;/code> command. For example, you can specify the HDF5 directory and enable GPU support. Here are some common options:&lt;/p>
+&lt;h4 id="2-specify-the-hdf5-directory">2. Specify the HDF5 directory:&lt;/h4>
+&lt;p>If the hdf5 library is not installed in library path, you can specify its path using the &lt;code>HDF5_ROOT&lt;/code> option. For example:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cmake -DHDF5_ROOT&lt;span class="o">=&lt;/span>/path/to/hdf5 ..
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
-&lt;li>Enable GPU support:&lt;/li>
-&lt;/ol>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="3-enable-gpu-support">3. Enable GPU support:&lt;/h4>
 &lt;p>Currently, SpecFWAT only supports CUDA for GPU acceleration. The CUDA architecture can be specified using the &lt;code>CUDA_ARCH&lt;/code> option. Check the table below for the supported architectures:&lt;/p>
 &lt;table>
 &lt;thead>
@@ -62,7 +62,7 @@
 &lt;tbody>
 &lt;tr>
 &lt;td>0 (default)&lt;/td>
-&lt;td>GPU on Current machine&lt;/td>
+&lt;td>GPU on current machine&lt;/td>
 &lt;td>N/A&lt;/td>
 &lt;/tr>
 &lt;tr>
