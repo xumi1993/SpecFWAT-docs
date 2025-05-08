@@ -34,7 +34,7 @@ sections:
         color: ""
         image:
           # Add your image background to `assets/media/`.
-          filename: "liquid-cheese.svg"
+          filename: "background.svg"
           filters:
             brightness: 1
   # - block: stats
