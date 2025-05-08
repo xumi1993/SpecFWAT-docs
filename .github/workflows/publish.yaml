@@ -7,6 +7,8 @@ on:
   # Trigger the workflow every time you push to the `main` branch
   push:
     branches: ["main"]
+  pull_request:
+    branches: [ main ]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
@@ -16,14 +18,9 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   # Build website
   build:
-    if: github.repository_owner != 'HugoBlox'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -36,37 +33,28 @@ jobs:
       with:
         hugo-version: ${{ env.WC_HUGO_VERSION }}
         extended: true
-    - uses: actions/cache@v4
-      with:
-        path: /tmp/hugo_cache_runner/
-        key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.mod') }}
-        restore-keys: |
-          ${{ runner.os }}-hugomod-
-    - name: Setup Pages
-      id: pages
-      uses: actions/configure-pages@v5
     - name: Build with Hugo
       env:
         HUGO_ENVIRONMENT: production
       run: |
-        echo "Hugo Cache Dir: $(hugo config | grep cachedir)"
-        hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
-    - name: Generate Pagefind search index
-      run: npx pagefind --source "public"
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
+        hugo --gc --minify -b https://specfwat.xumijian.me/
+    # - name: Generate Pagefind search index
+    #   run: npx pagefind --source "public"
+    - name: Commit files
+      run: |
+        cd ./public
+        echo "specfwat.xumijian.me" > CNAME
+        git config --local user.email "gomijianxu@gmail.com"
+        git config --local user.name "xumi1993"
+        git add .
+        git commit -m `date +"%Y.%m.%dT%H:%M%S"`
+    - name: Pushes to blog repository
+      uses: cpina/github-action-push-to-another-repository@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        path: ./public
-
-  # Deploy website to GitHub Pages hosting
-  deploy:
-    if: github.repository_owner != 'HugoBlox'
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+        source-directory: 'public'
+        destination-github-username: 'xumi1993'
+        destination-repository-name: 'SpecFWAT-docs'
+        user-email: gomijianxu@gmail.com
+        target-branch: gh-pages
