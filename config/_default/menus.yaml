@@ -8,8 +8,8 @@ main:
   - name: Documentation
     url: docs/
     weight: 20
-  # - name: Blog
-  #   url: blog/
+  - name: Publications
+    url: Publications/
   #   weight: 30
   # - name: Showcase
   #   url: showcase/

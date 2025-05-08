@@ -88,6 +88,18 @@ sections:
       # Reduce spacing
       spacing:
         padding: ["1rem", 0, "1rem", 0]
+
+  - block: collection
+    id: publications
+    content:
+      title: "Related Publications"
+      text: 
+      filters:
+        folders:
+          - publications
+        featured_only: true
+    design:
+      view: citation
   # - block: cta-card
   #   content:
   #     title: "Start Writing with the #1 Effortless Documentation Platform"
