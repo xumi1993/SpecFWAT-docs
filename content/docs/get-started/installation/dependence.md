@@ -1,7 +1,7 @@
 ---
 linkTitle: Dependencies
 title: Install Dependencies
-weight: 2
+weight: 20
 ---
 
 <!--more-->

@@ -1,7 +1,7 @@
 ---
 linkTitle: Configuration 
 title: Configuration
-weight: 3
+weight: 30
 ---
 
 <!--more-->
@@ -65,6 +65,6 @@ Currently, SpecFWAT only supports CUDA for GPU acceleration. The CUDA architectu
 For example, to enable CUDA support and set the architecture to Ampere (A100), you can use the following command:
 
 ```bash
-cmake -DUSE_CUDA=on -DCUDA_ARCH=8 ..
+cmake -DUSE_CUDA=on -DCUDA_ARCH=11 ..
 ```
 
