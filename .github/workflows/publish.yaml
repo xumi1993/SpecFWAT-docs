@@ -28,6 +28,9 @@ jobs:
       with:
           # Fetch history for Hugo's .GitInfo and .Lastmod
         fetch-depth: 0
+    - name: 'Preparation...'
+      run: |
+          git clone --branch=gh-pages https://github.com/xumi1993/SpecFWAT-docs ./public
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
       with:
