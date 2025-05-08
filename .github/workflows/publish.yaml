@@ -42,7 +42,7 @@ jobs:
     #   run: npx pagefind --source "public"
     - name: Commit files
       run: |
-        cd ./public
+        mv public pages && cd ./pages
         echo "specfwat.xumijian.me" > CNAME
         git config --local user.email "gomijianxu@gmail.com"
         git config --local user.name "xumi1993"
