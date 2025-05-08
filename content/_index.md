@@ -11,7 +11,7 @@ sections:
   - block: hero
     content:
       title: "SpecFWAT: Illuminate Refined Subsurface Structures"
-      text: The easy, fast, and powerful full-waveform adjoint tomography (FWAT) inversion tool for seismic data.
+      text: The easy, fast, and powerful full-waveform adjoint tomography (FWAT) tool for multiple seismic data.
       primary_action:
         text: Clone from GitHub
         url: https://github.com/CompSeismoUT/SpecFWAT

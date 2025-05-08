@@ -51,13 +51,13 @@ conda install -c conda-forge fortran-compiler c-compiler cmake openmpi hdf5
 
 To install the dependencies for SpecFWAT on supercomputers, we recommend to load the required modules using the module system.
 
-### N40@BSCC
+### N40@BSCC (Nvidia RTX 4090)
 
 ```bash
 module load openmpi/4.1.5_gcc11.2_ucx1.14.1_cuda11.8 cmake/3.30.0 cuda/11.8 hdf5/1.13.3
 ```
 
-### Niagara@CCDB
+### Niagara@CCDB (CPU only)
 
 ```bash
 module --force purge
