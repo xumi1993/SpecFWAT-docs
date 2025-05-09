@@ -36,9 +36,9 @@ header:
     align: "right"
     fixed_to_top: true
     logo:
-      text: "SpecFWAT"
+      # text: "SpecFWAT"
       # Logo filename in `assets/media/` folder
-      filename: "icon.png"
+      filename: "logo_long.jpg"
     button:
       enable: false
       text: "Get Started"
